@@ -3,7 +3,7 @@
 %define		qtver		4.8.0
 
 Summary:	KBreakout
-Name:		kde4-kbreakout
+Name:		kde4-%{orgname}
 Version:	4.12.0
 Release:	1
 License:	GPL
@@ -17,7 +17,7 @@ BuildRequires:	kde4-libkdegames-devel >= %{version}
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.600
-Obsoletes:	kde4-kdegames-kbreakout
+Obsoletes:	kde4-kdegames-%{orgname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,7 +45,7 @@ install -d $RPM_BUILD_ROOT/var/games
 # remove locolor icons
 rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 
-%find_lang kbreakout	--with-kde
+%find_lang %{orgname}	--with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %post			-p /sbin/ldconfig
 %postun			-p /sbin/ldconfig
 
-%files -f kbreakout.lang
+%files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbreakout
 %{_desktopdir}/kde4/kbreakout.desktop
